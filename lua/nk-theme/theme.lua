@@ -772,6 +772,7 @@ function M.get()
         tsxAttrib = { fg = util.darken(c.nk_light_cyan, 0.8) },
         tsxTagName = { fg = c.blue1 },
         htmlTagName = { fg = c.blue1 },
+        typescriptArrayMethod = { fg = c.nk_orange };
     }
 
     -- lsp symbol kind and completion kind highlights
