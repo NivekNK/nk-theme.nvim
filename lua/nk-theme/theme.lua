@@ -101,12 +101,12 @@ function M.get()
         -- default,
         -- Uncomment and edit if you want more specific syntax highlighting.
 
-        Constant = { fg = c.nk_purple }, -- (preferred) any constant
+        -- Constant = { fg = c.nk_purple }, -- (preferred) any constant
         String = { fg = c.nk_yellow }, --   a string constant: "this is a string"
         Character = { fg = c.nk_yellow }, --  a character constant: 'c', '\n'
-        -- Number        = { }, --   a number constant: 234, 0xff
-        -- Boolean       = { }, --  a boolean constant: TRUE, false
-        -- Float         = { }, --    a floating point constant: 2.3e10
+        Boolean       = { fg = c.nk_magenta }, --  a boolean constant: TRUE, false
+        Number        = { fg = c.nk_purple }, --   a number constant: 234, 0xff
+        Float         = { fg = c.nk_purple }, --    a floating point constant: 2.3e10
 
         Identifier = { fg = c.nk_white, style = options.styles.variables }, -- (preferred) any variable name
         Function = { fg = c.nk_orange, style = options.styles.functions }, -- function name (also: methods for classes)
@@ -115,7 +115,7 @@ function M.get()
         -- Conditional   = { }, --  if, then, else, endif, switch, etc.
         -- Repeat        = { }, --   for, do, while, etc.
         -- Label         = { }, --    case, default, etc.
-        Operator = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
+        Operator = { fg = c.nk_magenta }, -- "sizeof", "+", "*", etc.
         Keyword = { fg = c.nk_magenta, style = options.styles.keywords }, --  any other keyword
         -- Exception     = { }, --  try, catch, throw
 
@@ -342,7 +342,7 @@ function M.get()
         ["@lsp.type.typeAlias"] = { link = "@type.definition" },
         ["@lsp.type.unresolvedReference"] = { undercurl = true, sp = c.error },
         ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
-        ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
+        ["@lsp.typemod.class.defaultLibrary"] = { link = util.darken(c.nk_cyan, 0.8) },
         ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
         ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },
         ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
@@ -353,7 +353,7 @@ function M.get()
         ["@lsp.typemod.operator.injected"] = { link = "@operator" },
         ["@lsp.typemod.string.injected"] = { link = "@string" },
         ["@lsp.typemod.struct.defaultLibrary"] = { link = "@type.builtin" },
-        ["@lsp.typemod.type.defaultLibrary"] = { fg = util.darken(c.blue1, 0.8) },
+        ["@lsp.typemod.type.defaultLibrary"] = { fg = util.darken(c.nk_magenta, 0.8) },
         ["@lsp.typemod.typeAlias.defaultLibrary"] = { fg = util.darken(c.blue1, 0.8) },
         ["@lsp.typemod.variable.callable"] = { link = "@function" },
         ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
