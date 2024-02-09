@@ -226,7 +226,7 @@ function M.get()
         ["@function.macro"] = { link = "Macro" },
         ["@keyword.import"] = { link = "Include" },
         ["@keyword.coroutine"] = { link = "@keyword" },
-        ["@keyword.operator"] = { link = "@operator" },
+        ["@keyword.operator"] = { link = "@keyword" },
         ["@keyword.return"] = { link = "@keyword" },
         ["@function.method"] = { link = "Function" },
         ["@function.method.call"] = { link = "@function.method" },
@@ -280,7 +280,7 @@ function M.get()
 
         --- Functions
         ["@constructor"] = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-        ["@variable.parameter"] = { fg = c.nk_light_cyan }, -- For parameters of a function.
+        ["@variable.parameter"] = { fg = util.lighten(c.nk_light_cyan, 0.8) }, -- For parameters of a function.
         ["@variable.parameter.builtin"] = { fg = util.lighten(c.nk_light_cyan, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
         --- Keywords
@@ -296,7 +296,7 @@ function M.get()
 
         --- Identifiers
         ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
-        ["@variable.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
+        ["@variable.builtin"] = { fg = c.nk_magenta }, -- Variable names that are defined by the languages, like `this` or `self`.
         ["@module.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
 
         --- Text
@@ -310,7 +310,7 @@ function M.get()
         ["@diff.minus"] = { link = "DiffDelete" },
         ["@diff.delta"] = { link = "DiffChange" },
 
-        ["@module"] = { link = "Include" },
+        ["@module"] = { fg = c.nk_purple },
 
         -- tsx
         ["@tag.tsx"] = { fg = c.red },
@@ -343,6 +343,7 @@ function M.get()
         ["@lsp.type.unresolvedReference"] = { undercurl = true, sp = c.error },
         ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
         ["@lsp.typemod.class.defaultLibrary"] = { link = util.darken(c.nk_cyan, 0.8) },
+        ["@lsp.typemod.class.deduced"] = { link = "@type.builtin" },
         ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
         ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },
         ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
