@@ -6,7 +6,7 @@ M.bg = nil
 ---@type string
 M.fg = nil
 
----@param c  string
+---@param c string Color in hex format
 local function hexToRgb(c)
     c = string.lower(c)
     return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }

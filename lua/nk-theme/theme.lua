@@ -101,22 +101,22 @@ function M.get()
         -- default,
         -- Uncomment and edit if you want more specific syntax highlighting.
 
-        Constant = { fg = c.orange }, -- (preferred) any constant
-        String = { fg = c.green }, --   a string constant: "this is a string"
-        Character = { fg = c.green }, --  a character constant: 'c', '\n'
+        Constant = { fg = c.nk_purple }, -- (preferred) any constant
+        String = { fg = c.nk_yellow }, --   a string constant: "this is a string"
+        Character = { fg = c.nk_yellow }, --  a character constant: 'c', '\n'
         -- Number        = { }, --   a number constant: 234, 0xff
         -- Boolean       = { }, --  a boolean constant: TRUE, false
         -- Float         = { }, --    a floating point constant: 2.3e10
 
-        Identifier = { fg = c.magenta, style = options.styles.variables }, -- (preferred) any variable name
-        Function = { fg = c.blue, style = options.styles.functions }, -- function name (also: methods for classes)
+        Identifier = { fg = c.nk_white, style = options.styles.variables }, -- (preferred) any variable name
+        Function = { fg = c.nk_orange, style = options.styles.functions }, -- function name (also: methods for classes)
 
-        Statement = { fg = c.magenta }, -- (preferred) any statement
+        Statement = { fg = c.nk_magenta }, -- (preferred) any statement
         -- Conditional   = { }, --  if, then, else, endif, switch, etc.
         -- Repeat        = { }, --   for, do, while, etc.
         -- Label         = { }, --    case, default, etc.
         Operator = { fg = c.blue5 }, -- "sizeof", "+", "*", etc.
-        Keyword = { fg = c.cyan, style = options.styles.keywords }, --  any other keyword
+        Keyword = { fg = c.nk_magenta, style = options.styles.keywords }, --  any other keyword
         -- Exception     = { }, --  try, catch, throw
 
         PreProc = { fg = c.cyan }, -- (preferred) generic Preprocessor
@@ -125,7 +125,7 @@ function M.get()
         -- Macro         = { }, --    same as Define
         -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
 
-        Type = { fg = c.blue1 }, -- (preferred) int, long, char, etc.
+        Type = { fg = c.nk_cyan }, -- (preferred) int, long, char, etc.
         -- StorageClass  = { }, -- static, register, volatile, etc.
         -- Structure     = { }, --  struct, union, enum, etc.
         -- Typedef       = { }, --  A typedef
