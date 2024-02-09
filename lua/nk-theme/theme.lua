@@ -127,7 +127,7 @@ function M.get()
 
         Type = { fg = c.nk_cyan }, -- (preferred) int, long, char, etc.
         StorageClass  = { fg = c.nk_magenta }, -- static, register, volatile, etc.
-        Structure     = { fg = c.nk_green }, --  struct, union, enum, etc.
+        -- Structure     = { fg = c.nk_green }, --  struct, union, enum, etc.
         -- Typedef       = { }, --  A typedef
 
         Special = { fg = c.nk_magenta }, -- (preferred) any special symbol
