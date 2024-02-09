@@ -51,7 +51,7 @@ function M.palette()
         nk_magenta = "#e9266d",
         nk_cyan = "#0dbee7",
         nk_light_cyan = "#9cdbf0",
-        nk_gree = "#a6e22e",
+        nk_green = "#a6e22e",
         nk_orange = "#ff8000",
         nk_white = "#f8f8f1",
         nk_purple = "#aa81f6",

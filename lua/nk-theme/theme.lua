@@ -318,6 +318,7 @@ function M.get()
         ["@tag.delimiter.tsx"] = { fg = util.darken(c.blue, 0.7) },
 
         -- LSP Semantic Token Groups
+        ["@lsp.type.struct"] = { fg = c.nk_green },
         ["@lsp.type.boolean"] = { link = "@boolean" },
         ["@lsp.type.builtinType"] = { link = "@type.builtin" },
         ["@lsp.type.comment"] = { link = "@comment" },
