@@ -126,7 +126,7 @@ function M.get()
         -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
 
         Type = { fg = c.nk_cyan }, -- (preferred) int, long, char, etc.
-        -- StorageClass  = { }, -- static, register, volatile, etc.
+        StorageClass  = { fg = c.nk_magenta }, -- static, register, volatile, etc.
         -- Structure     = { }, --  struct, union, enum, etc.
         -- Typedef       = { }, --  A typedef
 
@@ -290,7 +290,7 @@ function M.get()
         ["@label"] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
 
         --- Types
-        ["@type.builtin"] = { fg = util.darken(c.blue1, 0.8) },
+        ["@type.builtin"] = { fg = util.darken(c.nk_magenta, 0.8) },
         ["@variable.member"] = { fg = c.nk_light_cyan }, -- For fields.
         ["@property"] = { fg = c.nk_light_cyan },
 
@@ -323,8 +323,8 @@ function M.get()
         ["@lsp.type.comment"] = { link = "@comment" },
         ["@lsp.type.decorator"] = { link = "@attribute" },
         ["@lsp.type.deriveHelper"] = { link = "@attribute" },
-        ["@lsp.type.enum"] = { link = "@type" },
-        ["@lsp.type.enumMember"] = { link = "@constant" },
+        ["@lsp.type.enum"] = { fg = c.nk_purple },
+        ["@lsp.type.enumMember"] = { fg = c.orange },
         ["@lsp.type.escapeSequence"] = { link = "@string.escape" },
         ["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
         ["@lsp.type.generic"] = { link = "@variable" },
