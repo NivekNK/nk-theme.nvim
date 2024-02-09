@@ -226,7 +226,7 @@ function M.get()
         ["@function.macro"] = { link = "Macro" },
         ["@keyword.import"] = { link = "Include" },
         ["@keyword.coroutine"] = { link = "@keyword" },
-        ["@keyword.operator"] = { link = "@keyword" },
+        ["@keyword.operator"] = { link = "@operator" },
         ["@keyword.return"] = { link = "@keyword" },
         ["@function.method"] = { link = "Function" },
         ["@function.method.call"] = { link = "@function.method" },
@@ -264,7 +264,7 @@ function M.get()
         ["@type.qualifier"] = { link = "@keyword" },
 
         --- Misc
-        ["@operator"] = { fg = c.blue5 }, -- For any operator: `+`, but also `->` and `*` in C.
+        ["@operator"] = { fg = util.lighten(c.nk_magenta, 0.8) }, -- For any operator: `+`, but also `->` and `*` in C.
 
         --- Punctuation
         ["@punctuation.delimiter"] = { fg = c.blue5 }, -- For delimiters ie: `.`
@@ -310,7 +310,7 @@ function M.get()
         ["@diff.minus"] = { link = "DiffDelete" },
         ["@diff.delta"] = { link = "DiffChange" },
 
-        ["@module"] = { fg = c.nk_purple },
+        ["@module"] = { link = "Include" },
 
         -- tsx
         ["@tag.tsx"] = { fg = c.red },
