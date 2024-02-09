@@ -280,8 +280,8 @@ function M.get()
 
         --- Functions
         ["@constructor"] = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-        ["@variable.parameter"] = { fg = c.yellow }, -- For parameters of a function.
-        ["@variable.parameter.builtin"] = { fg = util.lighten(c.yellow, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+        ["@variable.parameter"] = { fg = c.nk_light_cyan }, -- For parameters of a function.
+        ["@variable.parameter.builtin"] = { fg = util.lighten(c.nk_light_cyan, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
         --- Keywords
         ["@keyword"] = { fg = c.nk_magenta, style = options.styles.keywords }, -- For keywords that don't fall in previous categories.
@@ -291,8 +291,8 @@ function M.get()
 
         --- Types
         ["@type.builtin"] = { fg = util.darken(c.blue1, 0.8) },
-        ["@variable.member"] = { fg = c.green1 }, -- For fields.
-        ["@property"] = { fg = c.green1 },
+        ["@variable.member"] = { fg = c.nk_light_cyan }, -- For fields.
+        ["@property"] = { fg = c.nk_light_cyan },
 
         --- Identifiers
         ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
