@@ -130,7 +130,7 @@ function M.get()
         -- Structure     = { }, --  struct, union, enum, etc.
         -- Typedef       = { }, --  A typedef
 
-        Special = { fg = c.blue1 }, -- (preferred) any special symbol
+        Special = { fg = c.nk_magenta }, -- (preferred) any special symbol
         -- SpecialChar   = { }, --  special character in a constant
         -- Tag           = { }, --    you can use CTRL-] on this
         Delimiter = { link = "Special" }, --  character that needs attention
@@ -328,7 +328,7 @@ function M.get()
         ["@lsp.type.escapeSequence"] = { link = "@string.escape" },
         ["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
         ["@lsp.type.generic"] = { link = "@variable" },
-        ["@lsp.type.interface"] = { fg = util.lighten(c.blue1, 0.7) },
+        ["@lsp.type.interface"] = { fg = c.nk_purple },
         ["@lsp.type.keyword"] = { link = "@keyword" },
         ["@lsp.type.lifetime"] = { link = "@keyword.storage" },
         ["@lsp.type.namespace"] = { link = "@module" },
@@ -764,6 +764,12 @@ function M.get()
 
         TreesitterContext = { bg = util.darken(c.fg_gutter, 0.8) },
         Hlargs = { fg = c.yellow },
+
+        -- Language Specific
+
+        -- Typescript:
+        typescriptVariable = { fg = c.nk_magenta },
+        tsxAttrib = { fg = c.nk_light_cyan },
     }
 
     -- lsp symbol kind and completion kind highlights
