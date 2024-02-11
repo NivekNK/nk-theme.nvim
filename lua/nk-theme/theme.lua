@@ -127,7 +127,7 @@ function M.get()
 
         Type = { fg = c.nk_cyan }, -- (preferred) int, long, char, etc.
         StorageClass  = { fg = c.nk_magenta }, -- static, register, volatile, etc.
-        -- Structure     = { fg = c.nk_green }, --  struct, union, enum, etc.
+        -- Structure     = { }, --  struct, union, enum, etc.
         -- Typedef       = { }, --  A typedef
 
         Special = { fg = c.nk_magenta }, -- (preferred) any special symbol
@@ -344,7 +344,7 @@ function M.get()
         ["@lsp.type.string"] = { link = "@string" },
         ["@lsp.type.typeAlias"] = { link = "@type.definition" },
         ["@lsp.type.unresolvedReference"] = { undercurl = true, sp = c.error },
-        ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+        ["@lsp.type.variable"] = { link = "@variable" }, -- use treesitter styles for regular variables
         ["@lsp.typemod.class.defaultLibrary"] = { link = util.darken(c.nk_cyan, 0.8) },
         ["@lsp.typemod.class.deduced"] = { link = "@type.builtin" },
         ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
@@ -362,7 +362,7 @@ function M.get()
         ["@lsp.typemod.variable.callable"] = { link = "@function" },
         ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
         ["@lsp.typemod.variable.injected"] = { link = "@variable" },
-        ["@lsp.typemod.variable.static"] = { link = "@constant" },
+        ["@lsp.typemod.variable.static"] = { link = "@variable" },
         -- NOTE: maybe add these with distinct highlights?
         -- ["@lsp.typemod.variable.globalScope"] (global variables)
 
