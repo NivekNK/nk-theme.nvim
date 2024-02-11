@@ -316,9 +316,15 @@ function M.get()
         ["@tag.tsx"] = { fg = c.red },
         ["@constructor.tsx"] = { fg = c.blue1 },
         ["@tag.delimiter.tsx"] = { fg = util.darken(c.blue, 0.7) },
+        typescriptVariable = { fg = c.nk_magenta },
+        tsxAttrib = { fg = util.darken(c.nk_light_cyan, 0.8) },
+        tsxTagName = { fg = c.blue1 },
+        htmlTagName = { fg = c.blue1 },
+        typescriptArrayMethod = { fg = c.nk_orange };
 
         -- Custom
-        ["@type.struct"] = { fg = c.nk_green },
+        ["@lsp.type.struct"] = { fg = c.nk_green },
+        ["@lsp.type.typeParameter"] = { fg = c.nk_green },
 
         -- LSP Semantic Token Groups
         ["@lsp.type.boolean"] = { link = "@boolean" },
@@ -767,15 +773,6 @@ function M.get()
 
         TreesitterContext = { bg = util.darken(c.fg_gutter, 0.8) },
         Hlargs = { fg = c.yellow },
-
-        -- Language Specific
-
-        -- Typescript:
-        typescriptVariable = { fg = c.nk_magenta },
-        tsxAttrib = { fg = util.darken(c.nk_light_cyan, 0.8) },
-        tsxTagName = { fg = c.blue1 },
-        htmlTagName = { fg = c.blue1 },
-        typescriptArrayMethod = { fg = c.nk_orange };
     }
 
     -- lsp symbol kind and completion kind highlights
