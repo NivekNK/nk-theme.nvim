@@ -24,53 +24,51 @@ function M.get()
         colors = colors.get(),
     }
 
-    local c = theme.colors
+    local col = theme.colors
 
     theme.highlights = {
-        Foo = { bg = c.magenta2, fg = c.fg },
-
-        Comment = { fg = c.comment, style = options.styles.comments }, -- any comment
-        ColorColumn = { bg = c.black }, -- used for the columns set with 'colorcolumn'
+        Comment = { fg = col.comment, style = options.styles.comments }, -- any comment
+        ColorColumn = { bg = col.black }, -- used for the columns set with 'colorcolumn'
         Conceal = { fg = c.dark5 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-        Cursor = { fg = c.bg, bg = c.fg }, -- character under the cursor
-        lCursor = { fg = c.bg, bg = c.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-        CursorIM = { fg = c.bg, bg = c.fg }, -- like Cursor, but used when in IME mode |CursorIM|
-        CursorColumn = { bg = c.bg_highlight }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-        CursorLine = { bg = c.bg_highlight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+        Cursor = { fg = col.bg, bg = col.fg }, -- character under the cursor
+        lCursor = { fg = col.bg, bg = col.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+        CursorIM = { fg = col.bg, bg = col.fg }, -- like Cursor, but used when in IME mode |CursorIM|
+        CursorColumn = { bg = col.bg_highlight }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+        CursorLine = { bg = col.bg_highlight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
         Directory = { fg = c.blue }, -- directory names (and other special names in listings)
-        DiffAdd = { bg = c.diff.add }, -- diff mode: Added line |diff.txt|
-        DiffChange = { bg = c.diff.change }, -- diff mode: Changed line |diff.txt|
-        DiffDelete = { bg = c.diff.delete }, -- diff mode: Deleted line |diff.txt|
-        DiffText = { bg = c.diff.text }, -- diff mode: Changed text within a changed line |diff.txt|
-        EndOfBuffer = { fg = c.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+        DiffAdd = { bg = col.diff.add }, -- diff mode: Added line |diff.txt|
+        DiffChange = { bg = col.diff.change }, -- diff mode: Changed line |diff.txt|
+        DiffDelete = { bg = col.diff.delete }, -- diff mode: Deleted line |diff.txt|
+        DiffText = { bg = col.diff.text }, -- diff mode: Changed text within a changed line |diff.txt|
+        EndOfBuffer = { fg = col.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
         -- TermCursor  = { }, -- cursor in a focused terminal
         -- TermCursorNC= { }, -- cursor in an unfocused terminal
-        ErrorMsg = { fg = c.error }, -- error messages on the command line
-        VertSplit = { fg = c.border }, -- the column separating vertically split windows
-        WinSeparator = { fg = c.border, bold = true }, -- the column separating vertically split windows
+        ErrorMsg = { fg = col.error }, -- error messages on the command line
+        VertSplit = { fg = col.border }, -- the column separating vertically split windows
+        WinSeparator = { fg = col.border, bold = true }, -- the column separating vertically split windows
         Folded = { fg = c.blue, bg = c.fg_gutter }, -- line used for closed folds
-        FoldColumn = { bg = options.transparent and c.none or c.bg, fg = c.comment }, -- 'foldcolumn'
-        SignColumn = { bg = options.transparent and c.none or c.bg, fg = c.fg_gutter }, -- column where |signs| are displayed
-        SignColumnSB = { bg = c.bg_sidebar, fg = c.fg_gutter }, -- column where |signs| are displayed
-        Substitute = { bg = c.red, fg = c.black }, -- |:substitute| replacement text highlighting
-        LineNr = { fg = c.fg_gutter }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+        FoldColumn = { bg = options.transparent and col.none or col.bg, fg = col.comment }, -- 'foldcolumn'
+        SignColumn = { bg = options.transparent and col.none or col.bg, fg = col.fg_dim }, -- column where |signs| are displayed
+        SignColumnSB = { bg = col.bg_sidebar, fg = col.fg_dim }, -- column where |signs| are displayed
+        Substitute = { bg = col.magenta700, fg = col.black }, -- |:substitute| replacement text highlighting
+        LineNr = { fg = col.fg_dim }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
         CursorLineNr = { fg = c.dark5 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-        MatchParen = { fg = c.orange, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-        ModeMsg = { fg = c.fg_dark, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
-        MsgArea = { fg = c.fg_dark }, -- Area for messages and cmdline
+        MatchParen = { fg = col.orange300, bold = true }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+        ModeMsg = { fg = col.fg_dark, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
+        MsgArea = { fg = col.fg_dark }, -- Area for messages and cmdline
         -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
         MoreMsg = { fg = c.blue }, -- |more-prompt|
         NonText = { fg = c.dark3 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-        Normal = { fg = c.fg, bg = options.transparent and c.none or c.bg }, -- normal text
-        NormalNC = { fg = c.fg, bg = options.transparent and c.none or options.dim_inactive and c.bg_dark or c.bg }, -- normal text in non-current windows
-        NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in sidebar
-        NormalFloat = { fg = c.fg_float, bg = c.bg_float }, -- Normal text in floating windows.
-        FloatBorder = { fg = c.border_highlight, bg = c.bg_float },
-        FloatTitle = { fg = c.border_highlight, bg = c.bg_float },
-        Pmenu = { bg = c.bg_popup, fg = c.fg }, -- Popup menu: normal item.
+        Normal = { fg = col.fg, bg = options.transparent and col.none or col.bg }, -- normal text
+        NormalNC = { fg = col.fg, bg = options.transparent and col.none or options.dim_inactive and col.bg_dark or col.bg }, -- normal text in non-current windows
+        NormalSB = { fg = col.fg_sidebar, bg = col.bg_sidebar }, -- normal text in sidebar
+        NormalFloat = { fg = col.fg_float, bg = col.bg_float }, -- Normal text in floating windows.
+        FloatBorder = { fg = col.border_highlight, bg = col.bg_float },
+        FloatTitle = { fg = col.border_highlight, bg = col.bg_float },
+        Pmenu = { bg = col.bg_popup, fg = col.fg }, -- Popup menu: normal item.
         PmenuSel = { bg = util.darken(c.fg_gutter, 0.8) }, -- Popup menu: selected item.
         PmenuSbar = { bg = util.lighten(c.bg_popup, 0.95) }, -- Popup menu: scrollbar.
-        PmenuThumb = { bg = c.fg_gutter }, -- Popup menu: Thumb of the scrollbar.
+        PmenuThumb = { bg = col.fg_dim }, -- Popup menu: Thumb of the scrollbar.
         Question = { fg = c.blue }, -- |hit-enter| prompt and yes/no questions
         QuickFixLine = { bg = c.bg_visual, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
         Search = { bg = c.bg_search, fg = c.fg }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
@@ -102,40 +100,40 @@ function M.get()
         -- Uncomment and edit if you want more specific syntax highlighting.
 
         -- Constant = { fg = c.nk_purple }, -- (preferred) any constant
-        String = { fg = c.nk_yellow }, --   a string constant: "this is a string"
-        Character = { fg = c.nk_yellow }, --  a character constant: 'c', '\n'
-        Boolean       = { fg = c.nk_magenta }, --  a boolean constant: TRUE, false
-        Number        = { fg = c.nk_purple }, --   a number constant: 234, 0xff
-        Float         = { fg = c.nk_purple }, --    a floating point constant: 2.3e10
+        String = { fg = col.yellow500 }, --   a string constant: "this is a string"
+        Character = { fg = col.yellow400 }, --  a character constant: 'c', '\n'
+        Boolean       = { fg = col.magenta500 }, --  a boolean constant: TRUE, false
+        Number        = { fg = col.purple500 }, --   a number constant: 234, 0xff
+        Float         = { fg = col.purple500 }, --    a floating point constant: 2.3e10
 
-        Identifier = { fg = c.nk_white, style = options.styles.variables }, -- (preferred) any variable name
-        Function = { fg = c.nk_orange, style = options.styles.functions }, -- function name (also: methods for classes)
+        Identifier = { fg = col.fg, style = options.styles.variables }, -- (preferred) any variable name
+        Function = { fg = col.orange500, style = options.styles.functions }, -- function name (also: methods for classes)
 
-        Statement = { fg = c.nk_magenta }, -- (preferred) any statement
+        Statement = { fg = col.magenta500 }, -- (preferred) any statement
         -- Conditional   = { }, --  if, then, else, endif, switch, etc.
         -- Repeat        = { }, --   for, do, while, etc.
         -- Label         = { }, --    case, default, etc.
-        Operator = { fg = c.nk_magenta }, -- "sizeof", "+", "*", etc.
-        Keyword = { fg = c.nk_magenta, style = options.styles.keywords }, --  any other keyword
+        Operator = { fg = col.magenta500 }, -- "sizeof", "+", "*", etc.
+        Keyword = { fg = col.magenta500, style = options.styles.keywords }, --  any other keyword
         -- Exception     = { }, --  try, catch, throw
 
-        PreProc = { fg = c.cyan }, -- (preferred) generic Preprocessor
+        PreProc = { fg = col.cyan200 }, -- (preferred) generic Preprocessor
         -- Include       = { }, --  preprocessor #include
         -- Define        = { }, --   preprocessor #define
         -- Macro         = { }, --    same as Define
         -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
 
-        Type = { fg = c.nk_cyan }, -- (preferred) int, long, char, etc.
-        StorageClass  = { fg = c.nk_magenta }, -- static, register, volatile, etc.
+        Type = { fg = col.cyan500 }, -- (preferred) int, long, char, etc.
+        StorageClass  = { fg = col.magenta500 }, -- static, register, volatile, etc.
         -- Structure     = { }, --  struct, union, enum, etc.
         -- Typedef       = { }, --  A typedef
 
-        Special = { fg = c.nk_magenta }, -- (preferred) any special symbol
+        Special = { fg = col.magenta500 }, -- (preferred) any special symbol
         -- SpecialChar   = { }, --  special character in a constant
         -- Tag           = { }, --    you can use CTRL-] on this
         Delimiter = { link = "Special" }, --  character that needs attention
         -- SpecialComment= { }, -- special things inside a comment
-        Debug = { fg = c.orange }, --    debugging statements
+        Debug = { fg = col.orange500 }, --    debugging statements
 
         Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
         Bold = { bold = true },
@@ -144,8 +142,8 @@ function M.get()
         -- ("Ignore", below, may be invisible...)
         -- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-        Error = { fg = c.error }, -- (preferred) any erroneous construct
-        Todo = { bg = c.yellow, fg = c.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+        Error = { fg = col.error }, -- (preferred) any erroneous construct
+        Todo = { bg = col.yellow500, fg = col.bg }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
         qfLineNr = { fg = c.dark5 },
         qfFileName = { fg = c.blue },
@@ -264,40 +262,40 @@ function M.get()
         ["@type.qualifier"] = { link = "@keyword" },
 
         --- Misc
-        ["@operator"] = { fg = util.lighten(c.nk_magenta, 0.8) }, -- For any operator: `+`, but also `->` and `*` in C.
+        ["@operator"] = { fg = col.magenta400 }, -- For any operator: `+`, but also `->` and `*` in C.
 
         --- Punctuation
         ["@punctuation.delimiter"] = { fg = c.blue5 }, -- For delimiters ie: `.`
-        ["@punctuation.bracket"] = { fg = c.fg_dark }, -- For brackets and parens.
+        ["@punctuation.bracket"] = { fg = col.fg_dark }, -- For brackets and parens.
         ["@punctuation.special"] = { fg = c.blue5 }, -- For special symbols (e.g. `{}` in string interpolation)
         ["@markup.list"] = { fg = c.blue5 }, -- For special punctutation that does not fall in the catagories before.
-        ["@markup.list.markdown"] = { fg = c.orange, bold = true },
+        ["@markup.list.markdown"] = { fg = col.orange500, bold = true },
 
         --- Literals
-        ["@string.documentation"] = { fg = c.yellow },
+        ["@string.documentation"] = { fg = col.yellow500 },
         ["@string.regexp"] = { fg = c.blue6 }, -- For regexes.
-        ["@string.escape"] = { fg = c.magenta }, -- For escape characters within a string.
+        ["@string.escape"] = { fg = col.purple600 }, -- For escape characters within a string.
 
         --- Functions
-        ["@constructor"] = { fg = c.magenta }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
-        ["@variable.parameter"] = { fg = util.lighten(c.nk_light_cyan, 0.8) }, -- For parameters of a function.
-        ["@variable.parameter.builtin"] = { fg = util.lighten(c.nk_light_cyan, 0.8) }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
+        ["@constructor"] = { fg = col.orange500 }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+        ["@variable.parameter"] = { fg = util.darken(c.nk_light_cyan, 0.8) }, -- For parameters of a function.
+        ["@variable.parameter.builtin"] = { link = "@variable.parameter" }, -- For builtin parameters of a function, e.g. "..." or Smali's p[1-99]
 
         --- Keywords
-        ["@keyword"] = { fg = c.nk_magenta, style = options.styles.keywords }, -- For keywords that don't fall in previous categories.
-        ["@keyword.function"] = { fg = c.nk_magenta, style = options.styles.functions }, -- For keywords used to define a fuction.
+        ["@keyword"] = { fg = col.magenta500, style = options.styles.keywords }, -- For keywords that don't fall in previous categories.
+        ["@keyword.function"] = { fg = col.magenta500, style = options.styles.functions }, -- For keywords used to define a fuction.
 
         ["@label"] = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
 
         --- Types
-        ["@type.builtin"] = { fg = util.darken(c.nk_magenta, 0.8) },
+        ["@type.builtin"] = { fg = col.magenta600 },
         ["@variable.member"] = { fg = c.nk_light_cyan }, -- For fields.
-        ["@property"] = { fg = c.nk_light_cyan },
+        ["@property"] = { link = "@variable" },
 
         --- Identifiers
-        ["@variable"] = { fg = c.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
-        ["@variable.builtin"] = { fg = c.nk_magenta }, -- Variable names that are defined by the languages, like `this` or `self`.
-        ["@module.builtin"] = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
+        ["@variable"] = { fg = col.fg, style = options.styles.variables }, -- Any variable name that does not have another highlight.
+        ["@variable.builtin"] = { fg = col.magenta500 }, -- Variable names that are defined by the languages, like `this` or `self`.
+        ["@module.builtin"] = { fg = col.magenta500 }, -- Variable names that are defined by the languages, like `this` or `self`.
 
         --- Text
         ["@markup.raw.markdown_inline"] = { bg = c.terminal_black, fg = c.blue },
@@ -313,18 +311,18 @@ function M.get()
         ["@module"] = { link = "Include" },
 
         -- tsx
-        ["@tag.tsx"] = { fg = c.red },
-        ["@constructor.tsx"] = { fg = c.blue1 },
+        ["@tag.tsx"] = { fg = col.magenta700 },
+        ["@constructor.tsx"] = { fg = col.orange500 },
         ["@tag.delimiter.tsx"] = { fg = util.darken(c.blue, 0.7) },
-        typescriptVariable = { fg = c.nk_magenta },
+        typescriptVariable = { fg = col.magenta500 },
         tsxAttrib = { fg = util.darken(c.nk_light_cyan, 0.8) },
         tsxTagName = { fg = c.blue1 },
         htmlTagName = { fg = c.blue1 },
-        typescriptArrayMethod = { fg = c.nk_orange };
+        typescriptArrayMethod = { fg = col.orange500 };
 
         -- Custom
-        ["@lsp.type.struct"] = { fg = c.nk_green },
-        ["@lsp.type.typeParameter"] = { fg = c.nk_green },
+        ["@lsp.type.struct"] = { fg = col.green500 },
+        ["@lsp.type.typeParameter"] = { fg = col.green500 },
 
         -- LSP Semantic Token Groups
         ["@lsp.type.boolean"] = { link = "@boolean" },
@@ -332,12 +330,12 @@ function M.get()
         ["@lsp.type.comment"] = { link = "@comment" },
         ["@lsp.type.decorator"] = { link = "@attribute" },
         ["@lsp.type.deriveHelper"] = { link = "@attribute" },
-        ["@lsp.type.enum"] = { fg = c.nk_purple },
-        ["@lsp.type.enumMember"] = { fg = c.orange },
+        ["@lsp.type.enum"] = { fg = col.purple500 },
+        ["@lsp.type.enumMember"] = { fg = col.orange300 },
         ["@lsp.type.escapeSequence"] = { link = "@string.escape" },
         ["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
         ["@lsp.type.generic"] = { link = "@variable" },
-        ["@lsp.type.interface"] = { fg = c.nk_purple },
+        ["@lsp.type.interface"] = { fg = col.purple500 },
         ["@lsp.type.keyword"] = { link = "@keyword" },
         ["@lsp.type.lifetime"] = { link = "@keyword.storage" },
         ["@lsp.type.namespace"] = { link = "@module" },
@@ -349,9 +347,9 @@ function M.get()
         ["@lsp.type.selfTypeKeyword"] = { link = "@variable.builtin" },
         ["@lsp.type.string"] = { link = "@string" },
         ["@lsp.type.typeAlias"] = { link = "@type.definition" },
-        ["@lsp.type.unresolvedReference"] = { undercurl = true, sp = c.error },
-        ["@lsp.type.variable"] = { link = "@variable" }, -- use treesitter styles for regular variables
-        ["@lsp.typemod.class.defaultLibrary"] = { link = util.darken(c.nk_cyan, 0.8) },
+        ["@lsp.type.unresolvedReference"] = { undercurl = true, sp = col.error },
+        ["@lsp.type.variable"] = { link = "@variable.parameter" }, -- use treesitter styles for regular variables
+        ["@lsp.typemod.class.defaultLibrary"] = { fg = util.darken(c.nk_cyan, 0.8) },
         ["@lsp.typemod.class.deduced"] = { link = "@type.builtin" },
         ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
         ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },

@@ -53,7 +53,7 @@ end
 
 ---@param config Config
 function M.autocmds(config)
-    local group = vim.api.nvim_create_augroup("nk-theme", { clear = true })
+    local group = vim.api.nvim_create_augroup("nktheme", { clear = true })
 
     vim.api.nvim_create_autocmd("ColorSchemePre", {
         group = group,
