@@ -1,13 +1,22 @@
 local M = {}
 
----@type string
-M.bg = nil
+---@param hue number
+---@param saturation number
+---@param lightness number
+---@return string Color in hexadecimal
+function M.hsl_to_hex(hue, saturation, lightness)
+    lightness = lightness / 100
+    local a = saturation * math.min(lightness, 1 - lightness) / 100
+    local f = function(n)
+        local k = (n + hue / 30) % 12
+        local color = lightness - a * math.max(math.min(k - 3, 9 - k, 1), -1)
+        return string.format("%02x", math.floor(255 * color + 0.5))
+    end
+    return "#" .. f(0) .. f(8) .. f(4)
+end
 
----@type string
-M.fg = nil
-
----@param c string Color in hex format
-local function hexToRgb(c)
+---@param c string
+local function hex_to_rgb(c)
     c = string.lower(c)
     return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
 end
@@ -19,8 +28,8 @@ end
 function M.blend(foreground, background, alpha)
     alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
 
-    local bg = hexToRgb(background)
-    local fg = hexToRgb(foreground)
+    local bg = hex_to_rgb(background)
+    local fg = hex_to_rgb(foreground)
 
     local blendChannel = function(i)
         local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))

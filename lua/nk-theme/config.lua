@@ -13,9 +13,9 @@ local defaults = {
         keywords = { italic = true },
         functions = {},
         variables = {},
-        -- Background styles. Can be "dark", "transparent" or "normal"
-        sidebars = "dark",
-        floats = "dark",
+        -- Background styles. Can be "transparent" or "normal"
+        sidebars = "normal",
+        floats = "normal",
     },
     sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
