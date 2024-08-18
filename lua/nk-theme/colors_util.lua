@@ -44,7 +44,10 @@ end
 ---@param bg string|nil background color
 ---@return string
 function M.darken(hex, amount, bg)
-    return M.blend(hex, bg or M.bg, amount)
+    if not bg then
+        bg = require("nk-theme.colors").palette.black700
+    end
+    return M.blend(hex, bg, amount)
 end
 
 ---@param hex string color
@@ -52,7 +55,10 @@ end
 ---@param fg string|nil foreground color
 ---@return string
 function M.lighten(hex, amount, fg)
-    return M.blend(hex, fg or M.fg, amount)
+    if not fg then
+        fg = require("nk-theme.colors").palette.gray200
+    end
+    return M.blend(hex, fg, amount)
 end
 
 return M
